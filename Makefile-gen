@@ -1,0 +1,11 @@
+build: main-gen.o a-gen.o b-gen.o
+	gcc -fprofile-generate main-gen.o a-gen.o b-gen.o -o gen
+main-gen.o:
+	gcc -fprofile-generate -c main.c -o main-gen.o
+a-gen.o:
+	gcc -fprofile-generate -c a.c -o a-gen.o
+b-gen.o:
+	gcc -fprofile-generate -c b.c -o b-gen.o
+clean:
+	rm *.o gen *.gcda
+

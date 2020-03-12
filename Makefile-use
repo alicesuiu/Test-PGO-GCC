@@ -1,0 +1,11 @@
+build: main-use.o a-use.o b-use.o
+	gcc -fprofile-use  main-use.o a-use.o b-use.o -o use
+main-use.o:
+	gcc -fprofile-use -c main.c -o main-use.o
+a-use.o:
+	gcc -fprofile-use  -c a.c -o a-use.o
+b-use.o:
+	gcc -fprofile-use -c b.c -o b-use.o
+clean:
+	rm *.o use
+
